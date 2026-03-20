@@ -1,31 +1,42 @@
-# Zepto SQL Project
+# Zepto SQL Data Analysis
 
 ## About
-I worked on a Zepto dataset to understand how products, pricing, and discounts are structured. The idea was to explore the data and get some practical insights using SQL.
+This project is based on a Zepto dataset where I explored product-level data using SQL. The main focus was to clean the data and extract useful insights related to pricing, discounts, and stock availability.
 
-## Tools
+## Tools Used
 - MySQL
-- Excel
+
+## Database Setup
+- Created a database named `zeptodatabase`
+- Built a table `zepto` with product details like category, price, discount, stock, and weight
 
 ## Work Done
-- Loaded and cleaned the dataset
-- Wrote queries to analyze product details
-- Found top discounted products
-- Compared MRP with selling price
-- Checked category-wise data
-- Looked at stock availability
 
-## Files
-- zepto.sql (all queries)
-- dataset.csv
+### Data Exploration
+- Checked total number of records  
+- Identified null values in the dataset  
+- Found unique product categories  
+- Analyzed stock availability (in stock vs out of stock)  
+- Checked duplicate product names  
 
-## Some Findings
-- High discount products appear more frequently in certain categories
-- Price differences between MRP and selling price vary a lot
-- Some products have very low stock compared to others
+### Data Cleaning
+- Identified products with 0 price  
+- Converted price values from paisa to rupees  
 
-## Learning
-This project helped me get more comfortable with SQL basics like sorting, filtering, and aggregations. Also got better at thinking how to approach real datasets.
+### Analysis & Insights
 
-## Author
-Diwakar
+- Found top 10 products with highest discount  
+- Identified expensive products that are out of stock  
+- Calculated estimated revenue category-wise  
+- Filtered products based on price and discount conditions  
+- Found top categories with highest average discount  
+- Calculated price per gram for better comparison  
+- Grouped products into Low, Medium, and Bulk based on weight  
+
+## Sample Query
+
+```sql
+SELECT name, mrp, discountPercent
+FROM zepto
+ORDER BY discountPercent DESC
+LIMIT 10;
